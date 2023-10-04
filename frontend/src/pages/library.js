@@ -41,18 +41,7 @@ const LibraryPage = ({ queuedSongs, setQueuedSongs, currentSongIndex, playNextSo
         </div>
 
         <div className="w-1/3 pl-2 border rounded-md p-2 bg-gray-200">
-          <Controller
-            playNextSong={playNextSong}
-            playPreviousSong={playPreviousSong}
-            vocalVolume={vocalVolume}
-            backgroundVolume={backgroundVolume}
-            setVocalVolume={setVocalVolume}
-            setBackgroundVolume={setBackgroundVolume}
-            playAllMedia={playAllMedia}
-            pauseAllMedia={pauseAllMedia}
-            handleBackGroundVolumeChange={handleBackGroundVolumeChange}
-            handleVocalVolumeChange={handleVocalVolumeChange}
-          />
+          <Controller/>
 
           <SongQue queuedSongs={queuedSongs} setQueuedSongs={setQueuedSongs} currentSongIndex={currentSongIndex} />
         </div>
