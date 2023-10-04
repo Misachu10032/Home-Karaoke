@@ -2,8 +2,8 @@
   "scripts": {
 
 
-    "startAAA": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInWindows\"",
-    "linux-start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInWindows\"",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInWindows\"",
+    "startLinux": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInLinux\"",
 
 
     "start:frontend": "cd frontend && npm start",
