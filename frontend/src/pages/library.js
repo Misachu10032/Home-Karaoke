@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AddSongModal from '../components/modal/add-songs';
-import SearchBar from '../components/library/song-list';
+import SongList from '../components/library/song-list';
 import SongQue from '../components/library/song-que';
 import Controller from '../components/controller/controller';
 
@@ -37,7 +37,7 @@ const LibraryPage = ({ queuedSongs, setQueuedSongs, currentSongIndex, playNextSo
 
       <div className="flex flex-wrap space-x-8">
         <div className="w-1/2 pr-2 border rounded-md p-2 bg-gray-200">
-          <SearchBar queuedSongs={queuedSongs} setQueuedSongs={setQueuedSongs} />
+          <SongList queuedSongs={queuedSongs} setQueuedSongs={setQueuedSongs} />
         </div>
 
         <div className="w-1/3 pl-2 border rounded-md p-2 bg-gray-200">
