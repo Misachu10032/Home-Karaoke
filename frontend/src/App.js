@@ -1,24 +1,79 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+
+import 'tailwindcss/tailwind.css';
+
+import MainPage from './pages/main';
+import LibraryPage from './pages/library';
+import AddSongPage from './pages/addSongPage';
 
 function App() {
+
+
+
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [queuedSongs, setQueuedSongs] = useState([]);
+
+
+
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+
+      if (event.key === 'queuedSongs') {
+        setQueuedSongs(JSON.parse(event.newValue));
+      }
+      if (event.key === 'currentSongIndex') {
+        setCurrentSongIndex(JSON.parse(event.newValue));
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [queuedSongs]);
+
+
+  useEffect(() => {
+    console.log("did this app update", queuedSongs)
+  }, [queuedSongs]);
+
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <MainPage
+            queuedSongs={queuedSongs}
+            currentSongIndex={currentSongIndex}
+            setCurrentSongIndex={setCurrentSongIndex}
+
+          />
+        }
+      />
+      <Route
+        path="/library"
+        element={
+          <LibraryPage
+            queuedSongs={queuedSongs}
+            setQueuedSongs={setQueuedSongs}
+            currentSongIndex={currentSongIndex}
+          />
+        }
+      />
+      <Route
+        path="/add-song"
+        element={
+          <AddSongPage
+          />
+        }
+      />
+    </Routes>
   );
 }
 
