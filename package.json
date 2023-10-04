@@ -1,4 +1,22 @@
 {
+  "scripts": {
+
+
+    "startAAA": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInWindows\"",
+    "linux-start": "concurrently \"npm run start:frontend\" \"npm run start:backend\" \"npm run host:filesInWindows\"",
+
+
+    "start:frontend": "cd frontend && npm start",
+
+
+    "start:backend": "cd backend &&  uvicorn app:app --host 0.0.0.0 --port 8000",
+
+    "host:filesInLinux": "cd /home/john/songs && python -m http.server 8010",
+
+    "host:filesInWindows": "cd /c/songs/ && python -m http.server 8010"
+
+
+  },
   "devDependencies": {
     "concurrently": "^8.2.1"
   }
