@@ -1,7 +1,6 @@
 // Import React, useState, and useEffect
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import EditSongModal from '../modal/edit-song ';
 import SongItem from './song-item';
 
 const SongList = ({ queuedSongs, setQueuedSongs }) => {
@@ -18,7 +17,8 @@ const SongList = ({ queuedSongs, setQueuedSongs }) => {
 
   const [search, setSearch] = useState(false);
   // Your backend URL
-  const backendURL = 'http://localhost:8000'; const indexOfLastSong = currentPage * songsPerPage;
+  const backendURL = 'http://localhost:8000'; 
+  const indexOfLastSong = currentPage * songsPerPage;
   const indexOfFirstSong = indexOfLastSong - songsPerPage;
   const currentSongs = filteredSongs.slice(indexOfFirstSong, indexOfLastSong);
   const [isModalOpenArray, setIsModalOpenArray] = useState(currentSongs.map(() => false));
@@ -38,7 +38,7 @@ const SongList = ({ queuedSongs, setQueuedSongs }) => {
         console.error('Error fetching filtered songs:', error);
       }
     };
-
+    setCurrentPage(1)
     fetchFilteredSongs();
   }, [search]);
 
