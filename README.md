@@ -34,7 +34,7 @@ Before you get started, make sure you have the following prerequisites installed
 
 I'm using the following command for vocal isolation
 ```
-demucs --two-stems=vocals
+demucs --two-stems=vocals ...
 ```
 
 ## 4. Installation
