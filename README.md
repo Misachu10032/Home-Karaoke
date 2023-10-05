@@ -70,7 +70,7 @@ For Linux
    npm run startLinux
 ```
 The command will start both the frontend and backend servers. The frontend will be hosted on port 3000 and the backend on port 5000. Port 8010 is used to host the local songs using python http.server.
- When running, you can access the Home Karaoke application by opening a web browser and navigating to `http://localhost:3000`. Please check the [Demo](https://github.com/Misachu10032/Demo).
+ When running, you can access the Home Karaoke application by opening a web browser and navigating to `http://localhost:3000`. Please check the [Demo](https://github.com/Misachu10032/Home-Karaoke#demo).
 
 
 ## 6. Features
