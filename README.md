@@ -1,5 +1,7 @@
 # Home Karaoke
 Welcome to my personal project. This is a web-based karaoke player that allows users to browse songs, remove vocals, and sing along.
+
+This project does not contain any songs. You have to add them(.mp4 files) to this project.
 # Demo
 
 ## Table of Contents
