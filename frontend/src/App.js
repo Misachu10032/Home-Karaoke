@@ -5,7 +5,7 @@ import 'tailwindcss/tailwind.css';
 
 import MainPage from './pages/main';
 import LibraryPage from './pages/library';
-import AddSongPage from './pages/addSongPage';
+
 
 function App() {
 
@@ -66,13 +66,7 @@ function App() {
           />
         }
       />
-      <Route
-        path="/add-song"
-        element={
-          <AddSongPage
-          />
-        }
-      />
+
     </Routes>
   );
 }

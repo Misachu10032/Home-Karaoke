@@ -27,34 +27,43 @@ async def add_song(songFile: UploadFile, songName: str, author: str,hasVocal:boo
         if songFile.filename == '':
             return {"error": "No selected file"}
 
-        # Generate a unique folder name for each user
-        UPLOAD_FOLDER = os.path.join('/home','john','songs')
 
-        user_folder = f"{songName}-{author}"
-        user_upload_folder = os.path.join(UPLOAD_FOLDER, user_folder)
 
+
+        if os.name == 'nt':
+            UPLOAD_FOLDER ='C:/songs'
+        elif os.name == 'posix':
+            UPLOAD_FOLDER = os.path.join('/home','john','songs')
+        else:
+            UPLOAD_FOLDER = os.path.join('/home','john','songs')
+
+        song_folder_name = f"{songName}-{author}"
+        song_folder_abspath = os.path.abspath(os.path.join(UPLOAD_FOLDER, song_folder_name))
+        print("abspath",song_folder_abspath)
         # Create the user's upload folder if it doesn't exist
-        if not os.path.exists(user_upload_folder):
-            os.makedirs(user_upload_folder)
+        if not os.path.exists(song_folder_abspath):
+            os.makedirs(song_folder_abspath)
 
         # Save the file in the user's upload folder with its original filename
 
         print("path.join failed?")
 
-        file_path = os.path.join(user_upload_folder, "video.mp4")
+
+        file_path = os.path.join(song_folder_abspath, "video.mp4")
+        print("filePath",file_path)
 
         with open(file_path, 'wb') as f:
             content = await songFile.read()
             f.write(content)
 
         # Save the song details to the database
-        song_location= os.path.abspath(file_path)
-        song_folder_location =os.path.abspath(user_upload_folder)
+       
+       
         tagsArray = tags.split(",")
         song_data = {
             "song_name": songName,
             "author": author,
-            "folder_path": song_folder_location,
+            "folder_path": song_folder_abspath,
             "has_vocal":hasVocal,
             'tags': tagsArray,
             'language': language
@@ -65,7 +74,7 @@ async def add_song(songFile: UploadFile, songName: str, author: str,hasVocal:boo
         print("no error sofoar?")
  
 
-        return song_location
+        return file_path
     except Exception as e:
         # Handle any errors that occurred during the upload and database insertion
         return {"message": f"Failed to upload song: {str(e)}"}

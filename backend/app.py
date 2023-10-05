@@ -20,10 +20,10 @@ class SongUpdateRequest(BaseModel):
     new_data: dict
 mongo_client, collection = connect_to_mongodb()
 app = FastAPI()
-redis_conn = Redis(host='localhost', port=6379)  # Update with your Redis server details
+# redis_conn = Redis(host='localhost', port=6379)  # Update with your Redis server details
 
-# Create an RQ queue
-rq_queue = Queue('my_queue', connection=redis_conn)  # Replace 'my_queue' with your desired queue name
+# # Create an RQ queue
+# rq_queue = Queue('my_queue', connection=redis_conn)  # Replace 'my_queue' with your desired queue name
 
 origins = [
     "http://localhost",        # Allow requests from localhoste
@@ -45,8 +45,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 # # Folder where the uploaded files will be stored (relative to the current script's directory)
-UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '..','frontend', 'public', 'music-storage')
-app.mount('/public', StaticFiles(directory=UPLOAD_FOLDER), name='public')
+# UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), '..','frontend', 'public', 'music-storage')
+# app.mount('/public', StaticFiles(directory=UPLOAD_FOLDER), name='public')
 
 @app.post("/addNewSong/")
 async def upload_song(

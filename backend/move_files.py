@@ -5,7 +5,14 @@ def move_files(songName,author):
     folder_name = f"{songName}-{author}"
     script_dir = os.path.dirname(os.path.abspath(__file__))
     backend_source_dir = os.path.join(script_dir, "separated", "htdemucs", "video")
-    frontend_destination_dir = os.path.abspath(os.path.join( "/home", "john", "songs", folder_name))
+ 
+    if os.name == 'nt':
+        frontend_destination_dir = os.path.abspath(os.path.join( 'C:/songs', folder_name))
+    elif os.name == 'posix':
+        frontend_destination_dir = os.path.abspath(os.path.join( "/home", "john", "songs", folder_name))
+    else:
+        frontend_destination_dir = os.path.abspath(os.path.join( "/home", "john", "songs", folder_name))
+   
     files_to_move = ["no_vocals.wav", "vocals.wav"]
 
     # Create destination directory if it doesn't exist
