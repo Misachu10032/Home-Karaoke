@@ -30,7 +30,8 @@ The project's file structure is organized as follows:
 Before you get started, make sure you have the following prerequisites installed:
 - Python 3.x for the backend.
 - [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/) for the database.
-- [Demucs](https://github.com/facebookresearch/demucs) for vocal isolation. Please follow their installation instructions to until [here](https://github.com/facebookresearch/demucs#for-musicians)
+- [Demucs](https://github.com/facebookresearch/demucs) for vocal isolation. Please follow their installation instructions to until [here](https://github.com/facebookresearch/demucs#for-musicians).
+
 I'm using the following command for vocal isolation
 ```
 demucs --two-stems=vocals
