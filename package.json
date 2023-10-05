@@ -13,7 +13,7 @@
 
     "host:filesInLinux": "cd /home/john/songs && python -m http.server 8010",
 
-    "host:filesInWindows": "cd /c/songs/ && python -m http.server 8010"
+    "host:filesInWindows": "cd C:\\songs && python -m http.server 8010"
 
 
   },
