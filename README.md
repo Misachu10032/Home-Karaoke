@@ -15,7 +15,7 @@ Welcome to my personal project. This is a web-based karaoke player that allows u
 ## 1. Introduction
 
 The reason I built this is that the karaoke in town is not ideal. The music library is limited and the the vocal removal is done poorly. With the advancment of AI, I'm building a karaoke system with better vocal removal by using  [Demucs](https://github.com/facebookresearch/demucs)(Really Cool Stuff). 
-This project serves as a song library and karaoke player. It has a web UI built with React for browsing and selecting songs. Users can build their own playlist by adding songs to the library.
+This project serves as a song library and karaoke player. It has a web UI built with React for selecting and playing songs. Users can build their own playlist by adding songs to the library.
 
 ## 2. Project Structure
 
@@ -69,14 +69,14 @@ For Linux
 ```
    npm run startLinux
 ```
-The command will start both the frontend and backend servers. THe frontend will be hosted on port 3000 and the backend on port 5000. Port 8010 is used to host the local songs using python http.server.
+The command will start both the frontend and backend servers. The frontend will be hosted on port 3000 and the backend on port 5000. Port 8010 is used to host the local songs using python http.server.
  When running, you can access the Home Karaoke application by opening a web browser and navigating to `http://localhost:3000`. Please check the [Demo](https://github.com/Misachu10032/Demo).
 
 
 ## 6. Features
 
 - Song library management.
-- Vocal isolation for the songs with vocal
+- Vocal isolation for the songs with vocal.
 - Song search functionality.
 - Karaoke with basic controls.
 
