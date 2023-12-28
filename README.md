@@ -3,6 +3,8 @@ Welcome to my personal project. This is a web-based karaoke player that allows u
 
 This project does not contain any songs. To make it work, you need to have the mp4 files and add them to the library.
 # Demo
+[Demo](https://github.com/Misachu10032/Home-Karaoke/assets/127623479/d11cc72b-b38d-459c-8d67-9a21c84e454f)
+
 
 ## Table of Contents
 
